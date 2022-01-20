@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
+import { SearchContext } from "../../App";
 
 function Search({ isActive, toggleSearch }) {
 	const [searchText, setSearchText] = useState("");
@@ -37,15 +38,21 @@ function Search({ isActive, toggleSearch }) {
 	};
 
 	return (
-		<>
-			<SearchBar
-				isActive={isActive}
-				toggleSearch={toggleSearch}
-				value={searchText}
-				updateSearchState={updateSearchState}
-			/>
-			<SearchResults searchResults={searchResults} />
-		</>
+		<SearchContext.Consumer>
+			{searchContext => {
+				return (
+					<>
+						<SearchBar
+							isActive={searchContext.searchA}
+							toggleSearch={searchContext.toggleSearchActive}
+							value={searchText}
+							updateSearchState={updateSearchState}
+						/>
+						<SearchResults searchResults={searchResults} />
+					</>
+				);
+			}}
+		</SearchContext.Consumer>
 	);
 }
 

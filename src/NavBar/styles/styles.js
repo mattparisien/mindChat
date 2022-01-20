@@ -43,6 +43,7 @@ export const StyledResponsiveNavBar = styled.header`
 			&__search {
 				height: 100%;
 				width: 30px;
+				display: flex;
 			}
 
 			.Button {

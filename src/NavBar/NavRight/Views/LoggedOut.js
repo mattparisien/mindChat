@@ -5,7 +5,7 @@ import SearchIcon from "../../../Vector/SearchIcon";
 import Search from "../../Search/Search";
 
 function LoggedOut({ handleClick, toggleSearch, searchActive }) {
-	console.log(toggleSearch)
+	
 	return (
 		<>
 			<Button
@@ -30,7 +30,7 @@ function LoggedOut({ handleClick, toggleSearch, searchActive }) {
 			</Button>
 			<Divider direction='vertical' />
 			<div className='nav--right__search'>
-				<Search isActive={searchActive} toggleSearch={toggleSearch} />
+				
 				<Button isIconButton naked onClick={toggleSearch}>
 					<SearchIcon />
 				</Button>

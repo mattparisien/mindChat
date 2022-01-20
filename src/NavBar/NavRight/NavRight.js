@@ -5,7 +5,7 @@ import LoggedOut from "./Views/LoggedOut";
 import LoggedIn from "./Views/LoggedIn";
 import { SearchContext } from "../../App";
 
-function NavRight({ handleClick, toggleSearch }) {
+function NavRight({ handleClick }) {
 	return (
 		<SearchContext.Consumer>
 			{searchContext => {
