@@ -20,7 +20,9 @@ import { SearchContext } from "../App";
 function ResponsiveNavBar({ handleClick }) {
 	const [searchActive, setSearchActive] = useState(false);
 
-
+	const toggleSearch = () => {
+		setSearchActive(!searchActive);
+	};
 
 	return (
 		<StyledResponsiveNavBar searchActive={searchActive}>
