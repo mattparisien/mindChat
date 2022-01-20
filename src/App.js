@@ -8,7 +8,10 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import Post from "./Post/Post";
 import NewPost from "./Post/New/NewPost";
+import { createContext } from "react";
 import axios from "axios";
+
+export const SearchContext = createContext();
 
 function App() {
 	const [state, setState] = useState({
@@ -17,6 +20,17 @@ function App() {
 			view: null,
 		},
 	});
+
+	const [searchActive, setSearchActive] = useState(false);
+
+	const toggleSearch = () => {
+		setSearchActive(!searchActive);
+	};
+
+	const searchContextValue = {
+		searchActive,
+		toggleSearch,
+	};
 
 	const theme = {
 		colors: {
@@ -29,10 +43,11 @@ function App() {
 	};
 
 	useEffect(() => {
-		axios.get(process.env.REACT_APP_API_URL + '/posts')
-		.then(data => console.log(data))
-		.catch(err => console.log(err))
-	}, [])
+		axios
+			.get(process.env.REACT_APP_API_URL + "/posts")
+			.then(data => console.log(data))
+			.catch(err => console.log(err));
+	}, []);
 
 	const toggleRegisterModal = e => {
 		const isRegisterView = e.target.classList.contains("nav--right__register");
@@ -50,19 +65,23 @@ function App() {
 	return (
 		<div className='App'>
 			<ThemeProvider theme={theme}>
-				<Modal
-					isActive={state.modal.isActive}
-					toggleRegisterModal={toggleRegisterModal}
-					view={state.modal.view}
-				/>
-				<ResponsiveNavBar handleClick={toggleRegisterModal}></ResponsiveNavBar>
-				<main style={{marginTop: theme.header.height, height: "100%"}}>
-					<Routes>
-						<Route element={<Create />} path={"/new-post"} />
-						<Route element={<Post />} path={"/posts"} />
-						<Route element={<NewPost />} path={"/posts/new"} />
-					</Routes>
-				</main>
+				<SearchContext.Provider value={searchContextValue}>
+					<Modal
+						isActive={state.modal.isActive}
+						toggleRegisterModal={toggleRegisterModal}
+						view={state.modal.view}
+					/>
+					<ResponsiveNavBar
+						handleClick={toggleRegisterModal}
+					></ResponsiveNavBar>
+					<main style={{ marginTop: theme.header.height, height: "100%" }}>
+						<Routes>
+							<Route element={<Create />} path={"/new-post"} />
+							<Route element={<Post />} path={"/posts"} />
+							<Route element={<NewPost />} path={"/posts/new"} />
+						</Routes>
+					</main>
+				</SearchContext.Provider>
 			</ThemeProvider>
 		</div>
 	);

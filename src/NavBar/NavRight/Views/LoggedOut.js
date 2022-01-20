@@ -2,11 +2,10 @@ import React from "react";
 import Button from "../../../Button/Button";
 import Divider from "../../../Divider/Divider";
 import SearchIcon from "../../../Vector/SearchIcon";
+import Search from "../../Search/Search";
 
-function LoggedOut({ handleClick, toggleSearch }) {
-
-
-
+function LoggedOut({ handleClick, toggleSearch, searchActive }) {
+	console.log(toggleSearch)
 	return (
 		<>
 			<Button
@@ -31,6 +30,7 @@ function LoggedOut({ handleClick, toggleSearch }) {
 			</Button>
 			<Divider direction='vertical' />
 			<div className='nav--right__search'>
+				<Search isActive={searchActive} toggleSearch={toggleSearch} />
 				<Button isIconButton naked onClick={toggleSearch}>
 					<SearchIcon />
 				</Button>

@@ -2,10 +2,12 @@ import React from "react";
 import { StyledSearchBar } from "./styles";
 import Button from "../../Button/Button";
 import Close from "../../Vector/Close";
+import { SearchContext } from "../../App";
 
 function SearchBar({ toggleSearch, isActive, value, updateSearchState }) {
 	return (
 		<StyledSearchBar className='SearchBar' isActive={isActive}>
+			return (
 			<div className='SearchBar__inner'>
 				<input
 					className='SearchBar__input'
