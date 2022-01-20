@@ -7,7 +7,6 @@ import { SearchContext } from "../../App";
 function SearchBar({ toggleSearch, isActive, value, updateSearchState }) {
 	return (
 		<StyledSearchBar className='SearchBar' isActive={isActive}>
-			return (
 			<div className='SearchBar__inner'>
 				<input
 					className='SearchBar__input'

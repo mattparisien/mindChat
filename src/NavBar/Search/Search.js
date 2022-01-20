@@ -43,8 +43,8 @@ function Search({ isActive, toggleSearch }) {
 				return (
 					<>
 						<SearchBar
-							isActive={searchContext.searchA}
-							toggleSearch={searchContext.toggleSearchActive}
+							isActive={searchContext.searchActive}
+							toggleSearch={searchContext.toggleSearch}
 							value={searchText}
 							updateSearchState={updateSearchState}
 						/>
