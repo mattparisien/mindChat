@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "../../../../Wrapper/Wrapper";
 import CallToActions from "./CallToActions";
 import SignUpEmail from "./SignUpEmail";
-import Success from "./Success";
+
 
 export default function Register() {
 	const [view, setView] = useState("index");

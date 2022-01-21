@@ -1,8 +1,8 @@
 import React from "react";
 import { StyledSearchBar } from "./styles";
-import Button from "../../Button/Button";
+import { SearchContext } from "../../../App";
 import Close from "../../Vector/Close";
-import { SearchContext } from "../../App";
+import Button from "../../Button/Button";
 
 function SearchBar({ toggleSearch, isActive, value, updateSearchState }) {
 	return (

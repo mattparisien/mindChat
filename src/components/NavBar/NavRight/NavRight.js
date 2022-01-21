@@ -3,7 +3,7 @@ import { Box } from "@material-ui/core";
 import Button from "../../Button/Button";
 import LoggedOut from "./Views/LoggedOut";
 import LoggedIn from "./Views/LoggedIn";
-import { SearchContext } from "../../App";
+import { SearchContext } from "../../../App";
 
 function NavRight({ handleClick }) {
 	return (

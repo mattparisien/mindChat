@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
-import { SearchContext } from "../../App";
+import { SearchContext } from "../../../App";
 
 function Search({ isActive, toggleSearch }) {
 	const [searchText, setSearchText] = useState("");
