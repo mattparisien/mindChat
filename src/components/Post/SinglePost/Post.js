@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledPost } from "./styles";
-import ContainerNarrow from "../Container/ContainerNarrow";
+import { StyledPost } from "../styles";
+import ContainerNarrow from "../../Container/ContainerNarrow";
 
 function Post() {
 	return (

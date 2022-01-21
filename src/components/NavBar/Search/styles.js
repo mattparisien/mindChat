@@ -5,7 +5,7 @@ export const StyledSearchResults = styled.div`
 	position: absolute;
 	height: auto;
 	width: 100%;
-
+	
 	left: 0;
 	top: 100%;
 	padding-left: inherit;
@@ -13,15 +13,13 @@ export const StyledSearchResults = styled.div`
 
 	ul {
 		padding: 0px;
-		margin: 0;
 	}
 
 	li {
-		height: 5.5rem;
+		height: 50px;
 		width: 100%;
 		list-style-type: none;
-		border: 1px solid ${({ theme }) => theme.colors.lightGrey};
-		padding: 1rem;
+		border: 1px solid ${({theme}) => theme.colors.lightGrey};
 
 		a {
 			display: block;
@@ -33,6 +31,7 @@ export const StyledSearchResults = styled.div`
 			align-items: center;
 			justify-content: flex-start;
 			font-size: 2rem;
+			
 		}
 	}
 `;
