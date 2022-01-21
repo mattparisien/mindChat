@@ -25,6 +25,7 @@
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "faker": "^6.6.6",
+    "graphql": "^16.2.0",
     "mongodb": "^4.3.0",
     "mongoose": "^6.1.6",
     "nodemon": "^2.0.15",

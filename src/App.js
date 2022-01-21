@@ -12,7 +12,7 @@ import { createContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
-import { client } from "./ApolloClient/client";
+import { client } from "./ApolloClient/client";
 
 export const SearchContext = createContext();
 
@@ -80,7 +80,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<ApolloProvider>
+			<ApolloProvider client={client}>
 				<ThemeProvider theme={theme}>
 					<SearchContext.Provider value={searchContextValue}>
 						<Modal

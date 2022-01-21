@@ -103,6 +103,16 @@ router.route("/posts").get((req, res) => {
 	});
 });
 
+//Get single post
+router.route("/posts/:id").get((req, res) => {
+	const { id } = req.params;
+
+	Post.find({ id }, (err, post) => {
+		if (err) throw err;
+		res.send(post);
+	});
+});
+
 router.route("/posts/new").post((req, res) => {
 	const { title, body, author } = req.body;
 	const errors = [];
