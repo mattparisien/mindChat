@@ -37,7 +37,14 @@ function Post(props) {
 						</div>
 						<div className='post-body'>
 							{post.body.map((paragraph, i) => {
-								return <Paragraph key={i} className={`post-paragraph post-paragraph-${i}`}>{paragraph.text}</Paragraph>;
+								return (
+									<Paragraph
+										key={i}
+										className={`post-paragraph post-paragraph-${i}`}
+									>
+										{paragraph.text}
+									</Paragraph>
+								);
 							})}
 						</div>
 					</>
