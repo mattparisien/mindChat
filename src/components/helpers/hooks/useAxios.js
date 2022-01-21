@@ -2,19 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function useAxios(url) {
-
- 
 	const [state, setState] = useState({
 		error: false,
 		data: null,
 		loading: true,
 	});
 
-	
-
-
 	useEffect(() => {
-
 		if (!url) {
 			return;
 		}

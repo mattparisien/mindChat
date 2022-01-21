@@ -13,16 +13,12 @@ function Post(props) {
 	);
 	const [post, setPost] = useState(null);
 
-useEffect(() => {
-	if (data) {
-		setPost(data[0])
-
-	}
-
-	if (post) {
-		console.log(post.body)
-	}
-}, [data])
+	useEffect(() => {
+		if (data) {
+			console.log("the post..", data);
+			setPost(data);
+		}
+	}, [data]);
 
 	return (
 		<StyledPost className='Post post-container'>
@@ -39,8 +35,10 @@ useEffect(() => {
 							<Paragraph className='date'>Posted at {post.date}</Paragraph>
 							<Paragraph className='read-time'></Paragraph>
 						</div>
-						<div className="post-body">
-							<Paragraph>{post.body}</Paragraph>
+						<div className='post-body'>
+							{post.body.map((paragraph, i) => {
+								return <Paragraph key={i} className={`post-paragraph post-paragraph-${i}`}>{paragraph.text}</Paragraph>;
+							})}
 						</div>
 					</>
 				)}

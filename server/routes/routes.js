@@ -107,9 +107,9 @@ router.route("/posts").get((req, res) => {
 router.route("/posts/:id").get((req, res) => {
 	const { id } = req.params;
 
-	Post.find({ id }, (err, post) => {
+	Post.findById(id, (err, post) => {
 		if (err) throw err;
-		res.send(post);
+		res.send(post)
 	});
 });
 

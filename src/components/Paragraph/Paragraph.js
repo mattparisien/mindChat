@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyledParagraph } from './styles';
 
-function Paragraph({children, textAlign }) {
+function Paragraph({children, textAlign, className }) {
   return (
-    <StyledParagraph textAlign={textAlign}>
+    <StyledParagraph textAlign={textAlign} className={`Paragraph ${className}`}>
       {children}
     </StyledParagraph>
   );
