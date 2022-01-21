@@ -3,6 +3,7 @@ import { StyledPost } from "../styles";
 import ContainerNarrow from "../../Container/ContainerNarrow";
 import { useParams } from "react-router-dom";
 import useAxios from "../../helpers/hooks/useAxios";
+import Paragraph from "../../Paragraph/Paragraph";
 
 function Post(props) {
 	//Get post id in url param
@@ -15,12 +16,18 @@ function Post(props) {
 useEffect(() => {
 	if (data) {
 		setPost(data[0])
+
+	}
+
+	if (post) {
+		console.log(post.body)
 	}
 }, [data])
 
 	return (
 		<StyledPost className='Post post-container'>
 			<ContainerNarrow>
+				{loading && <p>Loading...</p>}
 				{post && (
 					<>
 						<div className='post-title'>
@@ -28,12 +35,12 @@ useEffect(() => {
 						</div>
 						<div className='post-details'>
 							<div className='author-avatar'></div>
-							<p className='author-name'></p>
-							<p className='date'>Posted at {post.date}</p>
-							<p className='read-time'></p>
+							<Paragraph className='author-name'></Paragraph>
+							<Paragraph className='date'>Posted at {post.date}</Paragraph>
+							<Paragraph className='read-time'></Paragraph>
 						</div>
 						<div className="post-body">
-							<p>{post.body}</p>
+							<Paragraph>{post.body}</Paragraph>
 						</div>
 					</>
 				)}

@@ -117,6 +117,8 @@ router.route("/posts/new").post((req, res) => {
 	const { title, body, author } = req.body;
 	const errors = [];
 
+	console.log(body)
+
 	if (title === "") {
 		errors.push({
 			msg: "Title cannot be blank",
@@ -139,7 +141,7 @@ router.route("/posts/new").post((req, res) => {
 			body: body,
 		});
 
-		newPost.save();
+		// newPost.save();
 	}
 });
 

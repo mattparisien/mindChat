@@ -26,6 +26,7 @@ export default function NewPost() {
 		e.preventDefault();
 		const title = titleState;
 		const body = editorState.getCurrentContent().getPlainText("\u0001");
+		console.log(editorState.getCurrentContent().getBlockMap()._map)
 		const author = "Matthew Parisien";
 
 		const post = {

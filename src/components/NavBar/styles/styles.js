@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { RESPONSIVENAVPADDING } from "./responsiveStyles";
-import { FLEXCENTER } from "../../styles/global";
+import { FLEXCENTER } from "../../../styles/global";
 
 const NAVBOXSHADOW = "box-shadow: 0px -7px 35px rgba(0, 0, 0, 0.25);";
 

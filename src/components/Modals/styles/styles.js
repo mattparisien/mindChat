@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { keyframes, css } from "styled-components";
-import { BOXSHADOW } from "../../styles/global";
+import { BOXSHADOW } from "../../../styles/global";
 
 const ABSOLUTECENTER = `
   position: absolute;

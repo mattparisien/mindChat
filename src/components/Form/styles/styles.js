@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FLEXCENTER } from "../../styles/global";
+import { FLEXCENTER } from "../../../styles/global";
 
 export const StyledInput = styled.div`
 	width: 100%;
