@@ -11,6 +11,8 @@ import NewPost from "./components/Post/New/NewPost";
 import { createContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ApolloProvider } from "@apollo/client";
+import { client } from "./ApolloClient/client";
 
 export const SearchContext = createContext();
 
@@ -78,39 +80,43 @@ function App() {
 
 	return (
 		<div className='App'>
-			<ThemeProvider theme={theme}>
-				<SearchContext.Provider value={searchContextValue}>
-					<Modal
-						isActive={state.modal.isActive}
-						toggleRegisterModal={toggleRegisterModal}
-						view={state.modal.view}
-					/>
-					<ResponsiveNavBar
-						handleClick={toggleRegisterModal}
-					></ResponsiveNavBar>
-					<main style={{ marginTop: theme.header.height, height: "100%" }}>
-						{data &&
-							data.map(post => {
-								return (
-									<div className='card'>
-										<Link
-											to={`/posts/${formatAuthor(post.author)}-${post._id}`}
-										>
-											<h1>{post.title}</h1>
-											<p>{Date.parse(post.date)} </p>
-										</Link>
-									</div>
-								);
-							})}
+			<ApolloProvider>
+				<ThemeProvider theme={theme}>
+					<SearchContext.Provider value={searchContextValue}>
+						<Modal
+							isActive={state.modal.isActive}
+							toggleRegisterModal={toggleRegisterModal}
+							view={state.modal.view}
+						/>
+						<ResponsiveNavBar
+							handleClick={toggleRegisterModal}
+						></ResponsiveNavBar>
+						<main style={{ marginTop: theme.header.height, height: "100%" }}>
+							{data &&
+								data.map(post => {
+									const to = {};
 
-						<Routes>
-							<Route element={<Create />} path={"/new-post"} />
-							<Route element={<Post />} path={"/posts/:id"} />
-							<Route element={<NewPost />} path={"/posts/new"} />
-						</Routes>
-					</main>
-				</SearchContext.Provider>
-			</ThemeProvider>
+									return (
+										<div className='card'>
+											<Link
+												to={`/posts/${formatAuthor(post.author)}/${post._id}`}
+											>
+												<h1>{post.title}</h1>
+												<p>{Date.parse(post.date)} </p>
+											</Link>
+										</div>
+									);
+								})}
+
+							<Routes>
+								<Route element={<Create />} path={"/new-post"} />
+								<Route element={<Post />} path={"/posts/:author/:id"} />
+								<Route element={<NewPost />} path={"/posts/new"} />
+							</Routes>
+						</main>
+					</SearchContext.Provider>
+				</ThemeProvider>
+			</ApolloProvider>
 		</div>
 	);
 }

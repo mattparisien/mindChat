@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledContainerNarrow = styled.div`
-	margin: 0 700px;
+	margin: 0 35%;
 	height: 100%;
 `;
 

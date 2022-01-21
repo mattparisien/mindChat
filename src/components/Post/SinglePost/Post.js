@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyledPost } from "../styles";
 import ContainerNarrow from "../../Container/ContainerNarrow";
+import { useParams } from "react-router-dom";
 
-function Post() {
+
+function Post(props) {
+
+	const { id } = useParams();
+
+	useEffect(() => {
+		console.log(id)
+	}, [])
+
 	return (
 		<StyledPost className='Post post-container'>
 			<ContainerNarrow>
