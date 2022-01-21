@@ -117,7 +117,8 @@ router.route("/posts/new").post((req, res) => {
 	const { title, body, author } = req.body;
 	const errors = [];
 
-	console.log(body)
+	//Make array of objects representing each paragraph
+	const formattedBody = Object.values(body.blockMap);
 
 	if (title === "") {
 		errors.push({
@@ -138,10 +139,10 @@ router.route("/posts/new").post((req, res) => {
 		const newPost = new Post({
 			author: author,
 			title: title,
-			body: body,
+			body: formattedBody,
 		});
 
-		// newPost.save();
+		newPost.save();
 	}
 });
 

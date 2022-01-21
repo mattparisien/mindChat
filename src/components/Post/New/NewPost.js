@@ -5,12 +5,14 @@ import TextEditor from "./TextEditor";
 import Button from "../../Button/Button";
 import axios from "axios";
 import { StyledContainer } from "./styles";
+import useSubmit from "../../helpers/hooks/useSubmit";
 
 export default function NewPost() {
 	const [editorState, setEditorState] = useState(EditorState.createEmpty());
-	const [success, setSuccess] = useState(false);
-	const [errors, setErrors] = useState(null);
+	// const [success, setSuccess] = useState(false);
+	// const [errors, setErrors] = useState(null);
 	const [titleState, setTitleState] = useState("");
+	const { submitData, success, error, loading } = useSubmit();
 
 	const editor = React.useRef(null);
 
@@ -25,8 +27,7 @@ export default function NewPost() {
 	const handlePublishClick = e => {
 		e.preventDefault();
 		const title = titleState;
-		const body = editorState.getCurrentContent().getPlainText("\u0001");
-		console.log(editorState.getCurrentContent().getBlockMap()._map)
+		const body = editorState.getCurrentContent();
 		const author = "Matthew Parisien";
 
 		const post = {
@@ -35,14 +36,7 @@ export default function NewPost() {
 			author,
 		};
 
-		axios
-			.post(process.env.REACT_APP_API_URL + "/posts/new", post)
-			.then(res => {
-				(res.data.errors && setErrors(res.data.errors))(
-					res.data === "Success" && setSuccess(true)
-				);
-			})
-			.then(err => console.log(err));
+		submitData(post);
 	};
 
 	const handleTitleChange = e => {

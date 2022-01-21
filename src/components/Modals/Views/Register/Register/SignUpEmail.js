@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../Button/Button";
 import Input from "../../../../Form/Input/Input";
 import * as EmailValidator from "email-validator";
 import axios from "axios";

@@ -1,9 +1,9 @@
 import React from "react";
 import SignUpButton from "./SignUpButton";
 import { Google, Facebook, Email } from "../../../../Vector/Socials";
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../Button/Button";
 import GoogleLogin from "react-google-login";
-import GoogleButton from "../../../../components/Button/GoogleButton";
+import GoogleButton from "../../../../Button/GoogleButton";
 
 function CallToActions({ signInClick }) {
 	return (
